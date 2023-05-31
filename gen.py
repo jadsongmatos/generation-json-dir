@@ -56,7 +56,7 @@ def is_binary(file_path):
     return b'\0' in chunk
 
 def extension_file(file_path):
-    TEXT_EXTENSIONS = ['json','js','ts','jsx','tsx','xml','html','csv']
+    TEXT_EXTENSIONS = ['js','ts','jsx','tsx','xml','html','csv']
     return os.path.splitext(file_path)[1][1:].lower() in TEXT_EXTENSIONS
 
 def is_text_file(file_path):
@@ -84,15 +84,7 @@ def is_text_file(file_path):
 
 
 def read_file_content(file_path):
-    """Lê o conteúdo de um arquivo de texto"""
-    # Obter o tipo MIME do arquivo
-    mime_type, _ = mimetypes.guess_type(file_path)
-    print(file_path, mime_type)
-    # Se o arquivo for de texto, JSON ou HTML, ler o conteúdo
-    text_based_mime_types = ['text', 'application/json', 'application/javascript', 'application/xml',
-                             'application/xhtml+xml', 'application/csv', 'application/csv', 'application/atom+xml']
-
-    if mime_type and any(mime_type.startswith(type) for type in text_based_mime_types):
+    if is_text_file(file_path):
         try:
             with open(file_path, 'r') as file:
                 text = file.read(text)
@@ -104,7 +96,6 @@ def read_file_content(file_path):
             return None  # ou retornar 'Erro: não foi possível ler o arquivo'
     else:
         return None  # ou retornar 'Erro: não é um arquivo de texto'
-
 
 def list_files(dir_path):
     """Retorna um dicionário de arquivos em um diretório e seus subdiretórios"""
