@@ -1,5 +1,8 @@
 # Gerador de resumo de diretorios
 
+https://en.wikipedia.org/wiki/Comparison_of_data-serialization_formats
+https://en.wikipedia.org/wiki/List_of_file_formats
+
 O gerador lê todos os arquivos de texto em um diretório fornecido (incluindo subdiretórios) e utiliza o modelo BigBird-Pegasus do Google para gerar um resumo do conteúdo de cada arquivo.
 
 Os resultados são então armazenados em um arquivo JSON. O arquivo JSON final terá a mesma estrutura de diretórios que o diretório fornecido, mas com cada arquivo de texto substituído por seu resumo.
